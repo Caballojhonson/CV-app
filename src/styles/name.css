@@ -1,0 +1,21 @@
+.nameSection {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    max-height: 40%;
+}
+.name{
+    white-space: pre-line;
+    text-align: end;
+    color: whitesmoke;
+    letter-spacing: 6px;
+    font-size: 40px;
+    margin-left: 0.5rem;
+}
+.profession {
+    text-align: end;
+    color: gray;
+    font-weight: 100;
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin-right: 0.5rem;
+}
