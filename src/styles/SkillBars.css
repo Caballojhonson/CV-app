@@ -1,0 +1,22 @@
+.skillContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.skillColumn {
+    width: 30%;
+}
+.skillBar {
+    width:65%;
+}
+.blackBar {
+    background-color: black;
+    min-height: 0.7rem;
+    margin-top: -0.7rem;
+}
+
+.grayBar {
+    background-color: lightgray;
+    width:100%;
+    min-height: 0.7rem;
+}

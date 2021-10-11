@@ -1,0 +1,12 @@
+.mainContainer {
+    margin: 2.5rem;
+}
+
+.sectionTitle {
+    font-family: 'Roboto', sans-serif;
+}
+
+.contentContainer {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+}
