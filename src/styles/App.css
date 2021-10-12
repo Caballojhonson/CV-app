@@ -1,39 +1,6 @@
-html, body {
-    margin: 0px;
-    max-height: 100vh;
-}
-#root{
-    max-height: 100vh;
-}
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', sans-serif;
-}
-
-h1{
-    font-size: 20px;
-    letter-spacing: 2px;
-}
-p, li {
-    font-size: 12px
-}
-.cv {
+.app__wrapper {
     display: flex;
-    max-height: 100vh;
-    aspect-ratio: 1 / 1.41;
 }
-.leftColumn {
+.formContainer{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background-color: black;
-    width: 34%;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    color: whitesmoke
-}
-
-.rightColumn {
-    width: 67%;
-    padding: 5% 0px 5% 2%;
 }
