@@ -1,6 +1,6 @@
 html, body {
     margin: 0px;
-    max-height: 100vh;
+    overflow-y: hidden;
 }
 #root{
     max-height: 100vh;

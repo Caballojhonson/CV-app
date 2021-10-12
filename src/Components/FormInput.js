@@ -6,7 +6,7 @@ function FormInput(props) {
 	return (
 		<div className="input__wrapper">
 			<label className="input__label" htmlFor={props.id}>{props.label}</label>
-			<input value={props.value} className="input__input" id={props.id} onChange={props.handler} />
+			<input autoComplete="off" value={props.value} className="input__input" id={props.id} onChange={props.handler} />
 		</div>
 	);
 }

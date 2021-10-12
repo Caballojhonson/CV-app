@@ -1,7 +1,25 @@
+button {
+    width: 5rem;
+    height: 2rem;
+    font-size: 20px;
+    background-color: rgb(14, 15, 29);
+    color:whitesmoke;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
 .app__wrapper {
     display: flex;
 }
 .formContainer{
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+::-webkit-scrollbar {
+    display: none;
+    }
+
+.form {
+    overflow-y: scroll;
 }

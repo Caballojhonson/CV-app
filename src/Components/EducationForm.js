@@ -22,7 +22,9 @@ function EducationForm(props) {
 				id="certificate"
 				handler={props.handler}
 			/>
-			<button onClick={props.clickHandler}>+Add</button>
+			<div className="edu_btn-wrapper">
+				<button onClick={props.clickHandler}>Add</button>
+			</div>
 		</div>
 	);
 }

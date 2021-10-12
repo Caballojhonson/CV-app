@@ -24,6 +24,7 @@ class Cv extends React.Component {
 			website,
 			about,
 			education,
+			experience,
 		} = this.props;
 
 		return (
@@ -61,23 +62,21 @@ class Cv extends React.Component {
 
 					<Section
 						title="EXPERIENCE"
-						content={
-							<ExperienceItem
-								year="2023"
-								employer="GOODYEAR"
-								position="JUNIOR BALLSUCKER OF THE GOODYEAR"
-								jobs={
-									<div>
-										<li>Sucked bob's balls</li>
-										<li>Sucked Michael's sweaty balls</li>
-										<li>
-											Sometimes charged with licking Mr. Jose's balls. He was
-											the janitor
-										</li>
-									</div>
-								}
-							/>
-						}
+						content={experience.map((item) => {
+							return (
+								<ExperienceItem
+									year={item.year}
+									employer={item.company.toUpperCase()}
+									position={item.position.toUpperCase()}
+									jobs={item.functions.map(func => {
+                                         if(!func) return null
+                                         else return <li>{func}</li>
+                                       
+                                        
+                                    })}
+								/>
+							);
+						})}
 					/>
 
 					<Section
