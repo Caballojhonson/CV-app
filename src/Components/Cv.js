@@ -15,8 +15,16 @@ class Cv extends React.Component {
 	}
 
 	render() {
-		const { fullName, occupation, phone, phone2, email, website, about } =
-			this.props;
+		const {
+			fullName,
+			occupation,
+			phone,
+			phone2,
+			email,
+			website,
+			about,
+			education,
+		} = this.props;
 
 		return (
 			<div className="cv">
@@ -36,24 +44,19 @@ class Cv extends React.Component {
 				</div>
 
 				<div className="rightColumn">
-					<Section
-						title="ABOUT ME"
-						content={
-							<p>
-								{about}
-							</p>
-						}
-					/>
+					<Section title="ABOUT ME" content={<p>{about}</p>} />
 
 					<Section
 						title="EDUCATION"
-						content={
-							<EducationItem
-								place="Harvard University"
-								period="2021 - 2023"
-								course="Brain damaged monkey surveys"
-							/>
-						}
+						content={education.map((item) => {
+							return (
+								<EducationItem
+									place={item.place.toUpperCase()}
+									period={item.period}
+									course={item.certificate}
+								/>
+							);
+						})}
 					/>
 
 					<Section
