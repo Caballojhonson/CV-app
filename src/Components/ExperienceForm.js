@@ -1,5 +1,5 @@
 import React from 'react';
-import FormInput from './Components/FormInput';
+import FormInput from './FormInput';
 
 function ExperienceForm(props) {
 	const optional1 = (

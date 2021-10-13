@@ -25,6 +25,7 @@ class Cv extends React.Component {
 			about,
 			education,
 			experience,
+			skills,
 		} = this.props;
 
 		return (
@@ -81,7 +82,9 @@ class Cv extends React.Component {
 
 					<Section
 						title="SKILLS"
-						content={<SkillBars skill="Ballsucking" skillPercent="80%" />}
+						content={skills.map(skill => {
+							return <SkillBars  skill={skill.skill} skillPercent={`${skill.skillNum}%`}/>
+						})}
 					/>
 				</div>
 			</div>

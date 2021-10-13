@@ -3,8 +3,9 @@ import Cv from './Components/Cv';
 import EducationForm from './Components/EducationForm';
 import FormInput from './Components/FormInput';
 import Section from './Components/Section';
-import ExperienceForm from './ExperienceForm';
+import ExperienceForm from './Components/ExperienceForm';
 import './styles/app.css';
+import SkillForm from './Components/SkillForm';
 
 class App extends React.Component {
 	constructor() {
@@ -15,14 +16,90 @@ class App extends React.Component {
 			fullName: 'Ernesto Placeholder',
 			occupation: 'Web developer',
 			phone: '+14844458179',
-			education: [],
-			experience: [],
-			functions: [],
+			phone2: '+1-541-754-3010',
+			email: 'Ernestoplaceholder@mail.com',
+			website: 'www.Eplacehold.com',
+			about:
+				'Bacon ipsum dolor amet corned beef beef burgdoggen bacon bresaola kielbasa andouille capicola pastrami flank. Andouille capicola boudin biltong drumstick, sirloin meatball hamburger chicken ham hock flank porchetta. Fatback ball tip ham, pig filet mignon meatball alcatra jerky tri-tip meatloaf beef.',
+			education: [
+				{
+					place: 'Harvard university',
+					period: '1998 - 2001',
+					certificate: 'Graduate Certificate in Front-End Web Development',
+				},
+
+				{
+					place: 'Seattle university',
+					period: '2002 - 2003',
+					certificate: 'Graduate Certificate in Software Engineering',
+				},
+			],
+			experience: [
+				{
+					year: '2004',
+					company: 'Expedia Group',
+					position: 'Web designer',
+					functions: [
+						'Planning site designs, functionality and navigation along with audience funnels and data capture points.',
+						'Building wireframes & prototypes which were then turned into functional and responsive digital products',
+						null,
+						null,
+					],
+				},
+
+				{
+					year: '2009',
+					company: 'Freelance Web designer',
+					position: 'Web designer',
+					functions: [
+						'Designed an ecommerce webapp to sell baseball hats.',
+						'Created a mobile website for a free online video game',
+						'Designed custom graphics for a local print shop',
+						null,
+					],
+				},
+
+				{
+					year: '2012',
+					company: 'Amphimia Global, inc.',
+					position: 'Web designer',
+					functions: [
+						'Lead UI/UX website designer for a fast-paced design firm. Created an average of four minor websites or one major website per month',
+						'Created custom graphics sets for clients, with 99% client satisfaction scores',
+						null,
+						null,
+					],
+				},
+			],
+
+			skills: [
+				{
+					skill: 'HTML5',
+					skillNum: '85',
+				},
+				{
+					skill: 'CSS',
+					skillNum: '65',
+				},
+				{
+					skill: 'ES6',
+					skillNum: '90',
+				},
+				{
+					skill: 'Debugging',
+					skillNum: '35',
+				},
+				{
+					skill: 'GIT',
+					skillNum: '98',
+				},
+			],
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleEducation = this.handleEducation.bind(this);
 		this.handleExperience = this.handleExperience.bind(this);
+		this.handleSkills = this.handleSkills.bind(this);
 	}
 
 	handleChange(e) {
@@ -86,6 +163,18 @@ class App extends React.Component {
 		});
 	}
 
+	handleSkills(e) {
+		e.preventDefault();
+		const { skill, skillNum } = this.state;
+		const skills = { skill: skill, skillNum: skillNum };
+
+		this.setState({
+			skills: this.state.skills.concat(skills),
+			skill: '',
+			skillNum: '',
+		});
+	}
+
 	render() {
 		const {
 			fullName,
@@ -97,6 +186,7 @@ class App extends React.Component {
 			about,
 			education,
 			experience,
+			skills,
 		} = this.state;
 
 		return (
@@ -177,6 +267,19 @@ class App extends React.Component {
 								</div>
 							}
 						/>
+						<Section
+							title="Skills"
+							content={
+								<div>
+									<SkillForm
+										handler={this.handleChange}
+										clickHandler={this.handleSkills}
+										skillValue={this.state.skill}
+										skillNumValue={this.state.skillNum}
+									/>
+								</div>
+							}
+						/>
 					</form>
 				</div>
 
@@ -190,6 +293,7 @@ class App extends React.Component {
 					about={about}
 					education={education}
 					experience={experience}
+					skills={skills}
 				/>
 			</div>
 		);

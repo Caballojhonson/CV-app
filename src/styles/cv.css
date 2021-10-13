@@ -1,20 +1,20 @@
-html, body {
-    margin: 0px;
-    overflow-y: hidden;
-}
-#root{
-    max-height: 100vh;
-}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
 }
 
 h1{
-    font-size: 20px;
+    font-size: 19px;
     letter-spacing: 2px;
 }
+h3 {
+   font-size: 12px;
+}
 p, li {
-    font-size: 12px
+    font-size: 11px
+}
+ul {
+    margin: 5px;
 }
 .cv {
     display: flex;
@@ -29,11 +29,17 @@ p, li {
     background-color: black;
     width: 34%;
     padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 1rem;
     color: whitesmoke
 }
 
 .rightColumn {
     width: 67%;
     padding: 5% 0px 5% 2%;
+}
+.mainContain p{
+    margin-top: 1px;
+}
+.mainContain h3{
+    margin-bottom: 2px;
 }
