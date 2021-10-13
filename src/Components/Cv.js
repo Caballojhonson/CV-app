@@ -1,10 +1,12 @@
 import React from 'react';
+import uniqid from 'uniqid'
 import Contact from './Contact';
 import EducationItem from './EducationItem';
 import ExperienceItem from './ExperienceItem';
 import Name from './Name';
 import Section from './Section';
 import SkillBars from './SkillBars';
+
 import '../styles/cv.css';
 
 class Cv extends React.Component {
@@ -56,6 +58,7 @@ class Cv extends React.Component {
 									place={item.place.toUpperCase()}
 									period={item.period}
 									course={item.certificate}
+									key={uniqid()}
 								/>
 							);
 						})}
@@ -69,12 +72,11 @@ class Cv extends React.Component {
 									year={item.year}
 									employer={item.company.toUpperCase()}
 									position={item.position.toUpperCase()}
-									jobs={item.functions.map(func => {
-                                         if(!func) return null
-                                         else return <li>{func}</li>
-                                       
-                                        
-                                    })}
+									key={uniqid()}
+									jobs={item.functions.map((func) => {
+										if (!func) return '';
+										else return <li key={uniqid()}>{func}</li>;
+									})}
 								/>
 							);
 						})}
@@ -82,8 +84,14 @@ class Cv extends React.Component {
 
 					<Section
 						title="SKILLS"
-						content={skills.map(skill => {
-							return <SkillBars  skill={skill.skill} skillPercent={`${skill.skillNum}%`}/>
+						content={skills.map((skill) => {
+							return (
+								<SkillBars
+									skill={skill.skill}
+									skillPercent={`${skill.skillNum}%`}
+									key={uniqid()}
+								/>
+							);
 						})}
 					/>
 				</div>

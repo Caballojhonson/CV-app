@@ -8,6 +8,7 @@ function FormInput(props) {
 	className="input__textarea"
 	id={props.id}
 	onChange={props.handler}
+	
 />
 
 const input = <input
@@ -16,7 +17,7 @@ value={props.value}
 className="input__input"
 id={props.id}
 onChange={props.handler}
-
+required
 />
 
 	return (

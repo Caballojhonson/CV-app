@@ -6,6 +6,7 @@ import Section from './Components/Section';
 import ExperienceForm from './Components/ExperienceForm';
 import './styles/app.css';
 import SkillForm from './Components/SkillForm';
+import ReactToPrint from 'react-to-print';
 
 class App extends React.Component {
 	constructor() {
@@ -70,6 +71,7 @@ class App extends React.Component {
 					],
 				},
 			],
+			functions: [],
 
 			skills: [
 				{
@@ -99,6 +101,7 @@ class App extends React.Component {
 		this.handleEducation = this.handleEducation.bind(this);
 		this.handleExperience = this.handleExperience.bind(this);
 		this.handleSkills = this.handleSkills.bind(this);
+		this.reset = this.reset.bind(this);
 	}
 
 	handleChange(e) {
@@ -106,25 +109,26 @@ class App extends React.Component {
 		this.setState({
 			[e.target.id]: value,
 		});
-		console.log(this.state);
 	}
 
 	handleEducation(e) {
 		e.preventDefault();
-
 		const { place, period, certificate } = this.state;
+
 		const education = {
 			place: place,
 			period: period,
 			certificate: certificate,
 		};
 
-		this.setState({
-			education: this.state.education.concat(education),
-			place: '',
-			period: '',
-			certificate: '',
-		});
+		if (place && period && certificate) {
+			this.setState({
+				education: this.state.education.concat(education),
+				place: '',
+				period: '',
+				certificate: '',
+			});
+		}
 	}
 
 	handleExperience(e) {
@@ -149,17 +153,19 @@ class App extends React.Component {
 			functions: functions,
 		};
 
-		this.setState({
-			experience: this.state.experience.concat(experience),
-			functions: this.state.functions.concat(functions),
-			year: '',
-			company: '',
-			position: '',
-			function1: '',
-			function2: '',
-			function3: '',
-			function4: '',
-		});
+		if (year && company && position && function1) {
+			this.setState({
+				experience: this.state.experience.concat(experience),
+				functions: this.state.functions.concat(functions),
+				year: '',
+				company: '',
+				position: '',
+				function1: '',
+				function2: '',
+				function3: '',
+				function4: '',
+			});
+		}
 	}
 
 	handleSkills(e) {
@@ -167,10 +173,30 @@ class App extends React.Component {
 		const { skill, skillNum } = this.state;
 		const skills = { skill: skill, skillNum: skillNum };
 
+		if (skill && skillNum) {
+			this.setState({
+				skills: this.state.skills.concat(skills),
+				skill: '',
+				skillNum: '',
+			});
+		}
+	}
+
+	reset(e) {
+		e.preventDefault();
+
 		this.setState({
-			skills: this.state.skills.concat(skills),
-			skill: '',
-			skillNum: '',
+			fullName: '',
+			occupation: '',
+			phone: '',
+			phone2: '',
+			email: '',
+			website: '',
+			about: '',
+			education: [],
+			experience: [],
+			functions: [],
+			skills: [],
 		});
 	}
 
@@ -230,7 +256,7 @@ class App extends React.Component {
 										label="About"
 										id="about"
 										handler={this.handleChange}
-										textarea= 'true'
+										textarea="true"
 									/>
 								</div>
 							}
@@ -280,6 +306,18 @@ class App extends React.Component {
 								</div>
 							}
 						/>
+						<Section
+							title="Actions"
+							content={
+								<div className="form__actions">
+									<ReactToPrint
+										trigger={() => <button>Print</button>}
+										content={() => this.componentRef}
+									/>
+									<button onClick={this.reset}>Reset</button>
+								</div>
+							}
+						/>
 					</form>
 				</div>
 
@@ -294,6 +332,7 @@ class App extends React.Component {
 					education={education}
 					experience={experience}
 					skills={skills}
+					ref={(el) => (this.componentRef = el)}
 				/>
 			</div>
 		);
