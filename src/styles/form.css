@@ -14,3 +14,10 @@
     font-size: 12px;
     text-align: center;
 }
+.input__textarea {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    word-wrap: break-word;
+    height: 50px;
+    text-align: justify;
+}

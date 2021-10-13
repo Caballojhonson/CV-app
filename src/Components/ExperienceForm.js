@@ -7,6 +7,7 @@ function ExperienceForm(props) {
 			value={props.function2Value}
 			id="function2"
 			handler={props.handler}
+			textarea= 'true'
 		/>
 	);
 	const optional2 = (
@@ -14,6 +15,7 @@ function ExperienceForm(props) {
 			value={props.function3Value}
 			id="function3"
 			handler={props.handler}
+			textarea= 'true'
 		/>
 	);
 	const optional3 = (
@@ -21,6 +23,7 @@ function ExperienceForm(props) {
 			value={props.function4Value}
 			id="function4"
 			handler={props.handler}
+			textarea= 'true'
 		/>
 	);
 
@@ -49,6 +52,7 @@ function ExperienceForm(props) {
 				label="Functions"
 				id="function1"
 				handler={props.handler}
+				textarea= 'true'
 			/>
 			{props.function1Value && optional1}
 			{props.function2Value && optional2}

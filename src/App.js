@@ -12,7 +12,6 @@ class App extends React.Component {
 		super();
 
 		this.state = {
-			//Complete placeholders
 			fullName: 'Ernesto Placeholder',
 			occupation: 'Web developer',
 			phone: '+14844458179',
@@ -231,6 +230,7 @@ class App extends React.Component {
 										label="About"
 										id="about"
 										handler={this.handleChange}
+										textarea= 'true'
 									/>
 								</div>
 							}
