@@ -58,6 +58,22 @@ ul {
     cursor: pointer;
     transition: 0.3s;
 }
-.trashIcon:hover {
+.trashIcon:hover, .expTrashIcon:hover, .skillTrashIcon:hover {
     transform: scale(1.5);
+}
+.expTrashIcon {
+    position: absolute;
+    margin-top: 2.5rem;
+    margin-left: 0.5rem;
+    height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.skillTrashIcon {
+    position: absolute;
+    height: 20px;
+    padding: 0px 1rem 0px 1rem;
+    right: 5rem;
+    cursor: pointer;
+    transition: 0.3s;
 }
